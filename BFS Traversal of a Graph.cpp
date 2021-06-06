@@ -3,8 +3,8 @@ using namespace std;
 int main(){
 
 #ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+//	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
 #endif
 	
 	int n,e;
@@ -20,21 +20,22 @@ int main(){
 	vector<int> vis(n+1,0);
 	vector<int> bfs;
 	queue<int> q;
-	for(int i=1;i<n+1;i++){
+	for(int i=1;i<=n;i++){
 		if(vis[i]==0)
 		{
 			//bfs
 			vis[i]=1;
 			q.push(i);
 			while(!q.empty()){
-				bfs.push_back(i);
 				int node=q.front();
+				bfs.push_back(node);
 				q.pop();
-				for(auto it: adj[i])
+				for(auto it: adj[node])
 				{
-					if(!vis[it])
+					if(!vis[it]){
 						vis[it]=1;
 						q.push(it);
+				}
 				}
 			}
 		}
