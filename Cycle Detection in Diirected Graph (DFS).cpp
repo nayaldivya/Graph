@@ -20,7 +20,7 @@ bool cycle(int s, vector<int> adj[], vector<int> &vis[], vector<int> &dfs_vis)
 	return false;
 }
 
-bool check_bipartite(vector<int> adj[], int n)
+bool check_cycle(vector<int> adj[], int n)
 {
 
 	vector<int> vis(n+1,0);
@@ -52,10 +52,10 @@ int main(){
 	{
 		cin>>u>>v;
 		adj[u].push_back(v);
-		adj[v].push_back(u);
+		//adj[v].push_back(u);
 	}
 	
-	cout << checkcycle(adj,n);
+	cout << check_cycle(adj,n);
 
 }
 
